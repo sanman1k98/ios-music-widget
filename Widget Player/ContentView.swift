@@ -6,10 +6,7 @@
 //
 
 import SwiftUI
-import os
 import MediaPlayer
-
-let logger = Logger(subsystem: "com.deepstuff.Widget-Widget_Player", category: "UI")
 
 
 struct ContentView: View {
@@ -17,6 +14,7 @@ struct ContentView: View {
     let mediaController = MPMusicPlayerController.systemMusicPlayer
 
     var body: some View {
+        
         VStack {
             Rectangle()
                 .fill(playing ? Color.white : Color.gray)
@@ -25,15 +23,26 @@ struct ContentView: View {
             
             Spacer()
             
-            Button("Play/Pause") {
-                withAnimation {
-                    playing.toggle()
+            HStack {
+                Button("Play") {
+                    withAnimation {
+                        playing = true
+                        mediaController.play()
+                    }
+                }
+                Button("Pause") {
+                    withAnimation {
+                        playing = false
+                        mediaController.pause()
+                    }
                 }
             }
             
             Spacer()
         }
     }
+    
+    
     
 }
 
