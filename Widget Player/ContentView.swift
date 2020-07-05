@@ -27,12 +27,12 @@ struct ContentView: View {
     }
     
     private func playPause() {
-        if mediaController.playbackState == .playing {
+        switch mediaController.playbackState {
+        case .playing:
             mediaController.pause()
-        } else if !mediaController.isPreparedToPlay {
-            mediaController.prepareToPlay()
+        case .paused, .stopped, .interrupted:
             mediaController.play()
-        } else {
+        default:
             mediaController.play()
         }
     }
