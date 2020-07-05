@@ -15,13 +15,22 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
+            RoundedRectangle(cornerRadius: 20)
+                .frame(width: 250, height: 250)
+                .padding(.top, 50)
+            
             Spacer()
             
-            Button("Play/Pause") {
+            Button(action: {
                 withAnimation {
                     playPause()
                 }
-            }
+            }, label: {
+                Label("Play/Pause", systemImage: "playpause")
+                    .labelStyle(IconOnlyLabelStyle())
+                    .font(.largeTitle)
+            })
+            
             Spacer()
         }
     }
