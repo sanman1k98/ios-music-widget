@@ -6,26 +6,35 @@
 //
 
 import SwiftUI
+import os
+import MediaPlayer
+
+let logger = Logger(subsystem: "com.deepstuff.Widget-Widget_Player", category: "UI")
+
 
 struct ContentView: View {
+    @State private var playing = false
+    let mediaController = MPMusicPlayerController.systemMusicPlayer
+
     var body: some View {
-        
         VStack {
             Rectangle()
-                .fill(Color.gray)
+                .fill(playing ? Color.white : Color.gray)
                 .frame(width: 250, height: 250)
                 .padding(.top, 50)
+            
             Spacer()
-            Text("Hello, world!").padding()
-            Button("Play/Pause", action: playPause)
+            
+            Button("Play/Pause") {
+                withAnimation {
+                    playing.toggle()
+                }
+            }
+            
             Spacer()
         }
-        
     }
-}
-
-func playPause() {
-    return
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
