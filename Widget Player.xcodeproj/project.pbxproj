@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C92F9ED24B195EE00C240D9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2CFC3BCD24AD838F00A8A0DE /* Widget Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Widget Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFC3BD024AD838F00A8A0DE /* Widget_PlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget_PlayerApp.swift; sourceTree = "<group>"; };
 		2CFC3BD224AD838F00A8A0DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C92F9EC24B195EE00C240D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C92F9ED24B195EE00C240D9 /* Accounts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2CFC3BC424AD838F00A8A0DE = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +88,7 @@
 				2CFC3BE124AD839100A8A0DE /* Widget PlayerTests */,
 				2CFC3BEC24AD839100A8A0DE /* Widget PlayerUITests */,
 				2CFC3BCE24AD838F00A8A0DE /* Products */,
+				2C92F9EC24B195EE00C240D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
