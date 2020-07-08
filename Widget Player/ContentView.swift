@@ -62,15 +62,36 @@ struct placeholderArtwork: View {
 
 struct Controls: View {
     var body: some View {
-        Button(action: {
-            withAnimation {
-                playPause()
-            }
-        }, label: {
-            Label("Play/Pause", systemImage: "playpause")
-                .labelStyle(IconOnlyLabelStyle())
-                .font(.largeTitle)
-        })
+        HStack {
+            Spacer()
+            Button(action: {
+                withAnimation {
+                    return
+                }
+            }, label: {
+                Label("Previous", systemImage: "backward")
+            })
+            
+            Button(action: {
+                withAnimation {
+                    playPause()
+                }
+            }, label: {
+                Label("Play/Pause", systemImage: "playpause")
+            })
+            .padding(.horizontal, 30)
+            
+            Button(action: {
+                withAnimation {
+                    mediaController.skipToNextItem()
+                }
+            }, label: {
+                Label("Next", systemImage: "forward")
+            })
+            Spacer()
+        }
+        .labelStyle(IconOnlyLabelStyle())
+        .font(.largeTitle)
     }
     
     private func playPause() {
