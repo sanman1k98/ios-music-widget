@@ -28,19 +28,35 @@ struct ContentView: View {
 
 struct Artwork: View {
     var body: some View {
-        Image(uiImage: (currentArtwork() ?? UIImage(systemName: "music.note"))! )
-            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 300, height: 300)
+        Rectangle()
+            .opacity(0)
+            .overlay(
+                VStack {
+                    if let artwork = mediaController.nowPlayingItem?.artwork {
+                        let image = artwork.image(at: artwork.bounds.size)
+                        Image(uiImage: image!)
+                            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+                            .scaledToFit()
+                    } else {
+                        placeholderArtwork()
+                    }
+                }
+            )
+            .frame(width: 300, height: 300, alignment: .center)
     }
-    
-    private func currentArtwork() -> UIImage? {
-        var artwork :UIImage?
-        artwork = mediaController.nowPlayingItem?.artwork?.image(at: CGSize(width: 300, height: 300))
-        logger.log("\(artwork.debugDescription)")
-        return artwork
+}
+
+struct placeholderArtwork: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 30, style: .continuous)
+            .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .topTrailing))
+            .overlay(
+                Image(systemName: "music.quarternote.3")
+                    .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+                    .scaledToFit()
+                    .padding(.all, 40)
+            )
     }
-    
 }
 
 struct Controls: View {
@@ -74,8 +90,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
                 .preferredColorScheme(.dark)
-            Artwork()
-                .previewLayout(.sizeThatFits)
         }
     }
 }
+
