@@ -43,12 +43,13 @@ struct Artwork: View {
                 }
             )
             .frame(width: 300, height: 300, alignment: .center)
+            .cornerRadius(30)
     }
 }
 
 struct placeholderArtwork: View {
     var body: some View {
-        RoundedRectangle(cornerRadius: 30, style: .continuous)
+        Rectangle()
             .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .topTrailing))
             .overlay(
                 Image(systemName: "music.quarternote.3")
