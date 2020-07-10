@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import Foundation
 import MediaPlayer
 import os
 
 let mediaController = MPMusicPlayerController.systemMusicPlayer
+let notificationCenter = NotificationCenter.default
 let logger = Logger(subsystem: "com.deepstuff.Widget-Player", category: "Debug")
 
 struct ContentView: View {
     var body: some View {
+        
         VStack {
             Artwork()
                 .padding(.top, 30)
@@ -21,8 +24,8 @@ struct ContentView: View {
             Controls()
             Spacer()
         }
+        
     }
-    
     
 }
 
@@ -43,7 +46,7 @@ struct Artwork: View {
                 }
             )
             .frame(width: 300, height: 300, alignment: .center)
-            .cornerRadius(30)
+            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
     }
 }
 
@@ -56,6 +59,7 @@ struct placeholderArtwork: View {
                     .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
                     .scaledToFit()
                     .padding(.all, 40)
+                    .shadow(radius: 10)
             )
     }
 }
@@ -63,7 +67,7 @@ struct placeholderArtwork: View {
 struct Controls: View {
     var body: some View {
         HStack {
-            Spacer()
+            
             Button(action: {
                 withAnimation {
                     return
@@ -88,7 +92,7 @@ struct Controls: View {
             }, label: {
                 Label("Next", systemImage: "forward")
             })
-            Spacer()
+            
         }
         .labelStyle(IconOnlyLabelStyle())
         .font(.largeTitle)
