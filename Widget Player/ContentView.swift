@@ -31,22 +31,18 @@ struct ContentView: View {
 
 struct Artwork: View {
     var body: some View {
-        Rectangle()
-            .opacity(0)
-            .overlay(
-                VStack {
-                    if let artwork = mediaController.nowPlayingItem?.artwork {
-                        let image = artwork.image(at: artwork.bounds.size)
-                        Image(uiImage: image!)
-                            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-                            .scaledToFit()
-                    } else {
-                        placeholderArtwork()
-                    }
-                }
-            )
-            .frame(width: 300, height: 300, alignment: .center)
-            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+        VStack {
+            if let artwork = mediaController.nowPlayingItem?.artwork {
+                let image = artwork.image(at: artwork.bounds.size)
+                Image(uiImage: image!)
+                    .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+                    .scaledToFit()
+            } else {
+                placeholderArtwork()
+            }
+        }
+        .frame(width: 300, height: 300, alignment: .center)
+        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
     }
 }
 
