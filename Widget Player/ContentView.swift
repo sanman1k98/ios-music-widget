@@ -11,22 +11,18 @@ import MediaPlayer
 import os
 
 let mediaController = MPMusicPlayerController.systemMusicPlayer
-let notificationCenter = NotificationCenter.default
 let logger = Logger(subsystem: "com.deepstuff.Widget-Player", category: "Debug")
 
 struct ContentView: View {
     var body: some View {
-        
         VStack {
-            Artwork()
+            ArtworkView()
                 .padding(.top, 30)
             Spacer()
             Controls()
             Spacer()
         }
-        
     }
-    
 }
 
 struct Artwork: View {

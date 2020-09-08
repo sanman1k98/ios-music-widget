@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0B190F24BBB6980047FD19 /* ArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B190E24BBB6980047FD19 /* ArtworkView.swift */; };
 		2CFC3BD124AD838F00A8A0DE /* Widget_PlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC3BD024AD838F00A8A0DE /* Widget_PlayerApp.swift */; };
 		2CFC3BD324AD838F00A8A0DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC3BD224AD838F00A8A0DE /* ContentView.swift */; };
 		2CFC3BD524AD839000A8A0DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC3BD424AD839000A8A0DE /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0B190E24BBB6980047FD19 /* ArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkView.swift; sourceTree = "<group>"; };
 		2C92F9ED24B195EE00C240D9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2CFC3BCD24AD838F00A8A0DE /* Widget Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Widget Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFC3BD024AD838F00A8A0DE /* Widget_PlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget_PlayerApp.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				2CFC3BD024AD838F00A8A0DE /* Widget_PlayerApp.swift */,
 				2CFC3BD224AD838F00A8A0DE /* ContentView.swift */,
+				2C0B190E24BBB6980047FD19 /* ArtworkView.swift */,
 				2CFC3BD424AD839000A8A0DE /* Assets.xcassets */,
 				2CFC3BD924AD839000A8A0DE /* Info.plist */,
 				2CFC3BD624AD839000A8A0DE /* Preview Content */,
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0B190F24BBB6980047FD19 /* ArtworkView.swift in Sources */,
 				2CFC3BD324AD838F00A8A0DE /* ContentView.swift in Sources */,
 				2CFC3BD124AD838F00A8A0DE /* Widget_PlayerApp.swift in Sources */,
 			);
