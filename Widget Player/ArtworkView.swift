@@ -30,7 +30,7 @@ struct placeholderArtwork: View {
         Rectangle()
             .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .topTrailing))
             .overlay(
-                Image(systemName: "music.quarternote.3")
+                Image(systemName: "music.note")
                     .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
                     .scaledToFit()
                     .padding(.all, 40)
@@ -41,6 +41,7 @@ struct placeholderArtwork: View {
 
 struct ArtworkView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtworkView(mediaController: MediaController())
+        ContentView()
+            .preferredColorScheme(.dark)
     }
 }
