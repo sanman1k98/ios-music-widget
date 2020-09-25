@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ArtworkView: View {
+    @ObservedObject var mediaController: MediaController
+    
     var body: some View {
         VStack {
-            if let artwork = mediaController.nowPlayingItem?.artwork {
-                let image = artwork.image(at: artwork.bounds.size)
-                Image(uiImage: image!)
+            if let image = mediaController.image {
+                Image(uiImage: image)
                     .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
                     .scaledToFit()
             } else {
@@ -40,6 +41,6 @@ struct placeholderArtwork: View {
 
 struct ArtworkView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtworkView()
+        ArtworkView(mediaController: MediaController())
     }
 }
