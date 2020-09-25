@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Foundation
-import MediaPlayer
 import os
 
 let logger = Logger(subsystem: "com.deepstuff.Widget-Player", category: "Debug")
@@ -32,6 +31,7 @@ struct Controls: View {
     var body: some View {
         HStack {
             
+            // prev button
             Button(action: {
                 withAnimation {
                     mediaController.prev()
@@ -40,15 +40,23 @@ struct Controls: View {
                 Label("Previous", systemImage: "backward")
             })
             
+            // play/pause button
             Button(action: {
                 withAnimation {
                     mediaController.togglePlayback()
                 }
             }, label: {
-                Label("Play/Pause", systemImage: "playpause")
+                VStack {
+                    if !mediaController.playing {
+                        Label("Play", systemImage: "play")
+                    } else {
+                        Label("Pause", systemImage: "pause")
+                    }
+                }
             })
             .padding(.horizontal, 30)
             
+            // skip button
             Button(action: {
                 withAnimation {
                     mediaController.skip()
