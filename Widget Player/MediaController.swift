@@ -14,14 +14,18 @@ class MediaController: ObservableObject {
     private var nowPlayingUpdater: AnyCancellable?
     private var playerStateUpdater: AnyCancellable?
     
-    @Published var image: UIImage?
-    @Published var songTitle = "..."
+    @Published var image: UIImage? = nil
+    @Published var songTitle: String? = nil
     @Published var playing = false
     
     init() {
         player = .systemMusicPlayer
         player.beginGeneratingPlaybackNotifications()
         logger.debug("Started notifications")
+        
+        updateArtwork()
+        updateSongTitle()
+        updateState()
         
         nowPlayingUpdater = NotificationCenter.default
             .publisher(for: Notification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: player)
@@ -53,9 +57,9 @@ class MediaController: ObservableObject {
     private func updateSongTitle() {
         if let title = player.nowPlayingItem?.title {
             songTitle = title
-            logger.debug("Now playing: \(self.songTitle)")
+            logger.debug("Now playing: \(title)")
         } else {
-            songTitle = "..."
+            songTitle = nil
         }
     }
     
