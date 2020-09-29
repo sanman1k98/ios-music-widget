@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct BackgroundView: View {
+    @State var rotation: Double = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: "arrow.triangle.2.circlepath")
+            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+            .scaledToFit()
+            .frame(width: 360, height: 360, alignment: .center)
+            .rotationEffect(.degrees(rotation))
+            .onAppear {
+                let animation = Animation.linear(duration: 4).repeatForever(autoreverses: false)
+                return withAnimation(animation) {
+                    self.rotation = 360
+                }
+            }
     }
 }
 

@@ -15,12 +15,17 @@ struct ContentView: View {
     @StateObject var mediaController = MediaController()
     
     var body: some View {
-        VStack {
-            ArtworkView(mediaController: mediaController)
-                .padding(.top, 30)
-            Spacer()
-            Controls(mediaController: mediaController)
-            Spacer()
+        ZStack {
+            BackgroundView()
+                .ignoresSafeArea()
+            VStack {
+                ArtworkView(mediaController: mediaController)
+                    .padding(.top, 30)
+                InfoView(mediaController: mediaController)
+                Spacer()
+                Controls(mediaController: mediaController)
+                Spacer()
+            }
         }
     }
 }

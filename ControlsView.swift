@@ -20,7 +20,7 @@ struct Controls: View {
                     mediaController.prev()
                 }
             }, label: {
-                Label("Previous", systemImage: "backward")
+                Label("Previous", systemImage: "backward.fill")
             })
             
             // play/pause button
@@ -31,9 +31,9 @@ struct Controls: View {
             }, label: {
                 VStack {
                     if !mediaController.playing {
-                        Label("Play", systemImage: "play")
+                        Label("Play", systemImage: "play.fill")
                     } else {
-                        Label("Pause", systemImage: "pause")
+                        Label("Pause", systemImage: "pause.fill")
                     }
                 }
             })
@@ -45,7 +45,7 @@ struct Controls: View {
                     mediaController.skip()
                 }
             }, label: {
-                Label("Next", systemImage: "forward")
+                Label("Next", systemImage: "forward.fill")
             })
             
         }

@@ -12,6 +12,7 @@ struct Widget_PlayerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .statusBar(hidden: true)
         }
     }
 }
