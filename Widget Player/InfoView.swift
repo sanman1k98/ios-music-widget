@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct InfoView: View {
-    @ObservedObject var mediaController: MediaController
+    @EnvironmentObject var mediaController: MediaController
     
     var body: some View {
         VStack {
@@ -24,6 +24,7 @@ struct InfoView: View {
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(MediaController())
             .preferredColorScheme(.dark)
     }
 }

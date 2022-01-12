@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArtworkView: View {
-    @ObservedObject var mediaController: MediaController
+    @EnvironmentObject var mediaController: MediaController
     
     var body: some View {
         VStack {
@@ -42,6 +42,7 @@ struct placeholderArtwork: View {
 struct ArtworkView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(MediaController())
             .preferredColorScheme(.dark)
     }
 }

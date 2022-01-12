@@ -12,8 +12,6 @@ import os
 let logger = Logger(subsystem: "com.deepstuff.Widget-Player", category: "Debug")
 
 struct ContentView: View {
-    @StateObject var mediaController = MediaController()
-    
     var body: some View {
         ZStack {
             BackgroundView()
@@ -34,6 +32,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
+                .environmentObject(MediaController())
                 .preferredColorScheme(.dark)
         }
     }

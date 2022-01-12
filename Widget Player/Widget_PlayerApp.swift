@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Widget_PlayerApp: App {
+    @StateObject var mediaController = MediaController()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(mediaController)
                 .statusBar(hidden: true)
         }
     }

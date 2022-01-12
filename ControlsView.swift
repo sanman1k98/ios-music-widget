@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct Controls: View {
-    @ObservedObject var mediaController: MediaController
+    @EnvironmentObject var mediaController: MediaController
     
     var body: some View {
         HStack {
@@ -58,6 +58,7 @@ struct Controls: View {
 struct ControlsView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(MediaController())
             .preferredColorScheme(.dark)
     }
 }
