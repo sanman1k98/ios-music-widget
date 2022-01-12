@@ -8,26 +8,43 @@
 import SwiftUI
 
 struct BackgroundView: View {
-    @State var rotation: Double = 0
+    @EnvironmentObject var mediaController: MediaController
+    @State var degrees: Double = 0
     
     var body: some View {
-        Image(systemName: "arrow.triangle.2.circlepath")
-            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-            .scaledToFit()
-            .frame(width: 360, height: 360, alignment: .center)
-            .rotationEffect(.degrees(rotation))
-            .onAppear {
-                let animation = Animation.linear(duration: 4).repeatForever(autoreverses: false)
-                return withAnimation(animation) {
-                    self.rotation = 360
-                }
+        VStack {
+            if let image = mediaController.image {
+                Image(uiImage: image)
+                    .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+            } else {
+                PlaceholderBackground()
             }
+        }
+        .clipShape(Circle())
+        .scaledToFill()
+        .opacity(0.7)
+        .rotationEffect(.degrees(degrees))
+        .onAppear {
+            let animation = Animation.linear(duration: 10).repeatForever(autoreverses: false)
+            return withAnimation(animation) {
+                self.degrees = 360
+            }
+        }
+        .blur(radius: 100)
+    }
+}
+
+struct PlaceholderBackground: View {
+    var body: some View {
+        Rectangle()
+            .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .topTrailing))
     }
 }
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(MediaController())
             .preferredColorScheme(.dark)
     }
 }
