@@ -15,7 +15,6 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             BackgroundView()
-                .ignoresSafeArea()
             VStack {
                 ArtworkView(mediaController: mediaController)
                     .padding(.top, 30)

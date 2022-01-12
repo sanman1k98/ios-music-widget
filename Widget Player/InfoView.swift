@@ -18,6 +18,9 @@ struct InfoView: View {
                 Text("No song playing")
             }
         }
+        .font(.title)
+        .lineLimit(1)
+        .shadow(radius: 10)
     }
 }
 

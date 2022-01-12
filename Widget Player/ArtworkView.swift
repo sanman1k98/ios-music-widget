@@ -22,6 +22,7 @@ struct ArtworkView: View {
         }
         .frame(width: 300, height: 300, alignment: .center)
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .shadow(radius: 10)
     }
 }
 

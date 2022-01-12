@@ -49,8 +49,10 @@ struct Controls: View {
             })
             
         }
+        .foregroundColor(.white)
         .labelStyle(IconOnlyLabelStyle())
         .font(.largeTitle)
+        .shadow(radius: 10)
     }
     
 }
