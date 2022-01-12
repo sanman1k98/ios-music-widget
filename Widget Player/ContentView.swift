@@ -16,11 +16,11 @@ struct ContentView: View {
         ZStack {
             BackgroundView()
             VStack {
-                ArtworkView(mediaController: mediaController)
+                ArtworkView()
                     .padding(.top, 30)
-                InfoView(mediaController: mediaController)
+                InfoView()
                 Spacer()
-                Controls(mediaController: mediaController)
+                Controls()
                 Spacer()
             }
         }
